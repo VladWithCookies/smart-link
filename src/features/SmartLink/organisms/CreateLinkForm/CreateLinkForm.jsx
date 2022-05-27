@@ -9,6 +9,7 @@ import Fieldset from 'components/atoms/Fieldset';
 import InputField from 'components/molecules/InputField';
 import SelectField from 'components/molecules/SelectField';
 import { STREAMING_SERVICE_OPTIONS } from 'constants';
+import styles from './CreateLinkForm.module.scss';
 
 export default function CreateLinkForm() {
   const methods = useForm();
@@ -31,18 +32,29 @@ export default function CreateLinkForm() {
             name={`service.${index}.name`}
             options={STREAMING_SERVICE_OPTIONS}
           />
-          <InputField name={`service.${index}.url`} />
-          <Button onClick={() => remove(index)}>
+          <InputField
+            name={`service.${index}.url`}
+            className={styles.input}
+          />
+          <Button
+            kind="danger"
+            onClick={() => remove(index)}
+          >
             Remove
           </Button>
         </Fieldset>
       ))}
-      <Button onClick={() => append({ name: SPOTIFY, url: '' })}>
-        Add Streaming Service
-      </Button>
-      <Button type="submit">
-        Create Smart Link
-      </Button>
+      <div className={styles.actions}>
+        <Button onClick={() => append({ name: SPOTIFY, url: '' })}>
+          Add Streaming Service
+        </Button>
+        <Button
+          type="submit"
+          kind="primary"
+        >
+          Create Smart Link
+        </Button>
+      </div>
     </Form>
   );
 }

@@ -1,0 +1,11 @@
+@import "styles/variables";
+
+.select {
+  height: 40px;
+  border: 2px solid $gray-900;
+  background: transparent;
+  border-radius: 0;
+  color: $gray-900;
+  font-weight: 700;
+  text-transform: uppercase;
+}

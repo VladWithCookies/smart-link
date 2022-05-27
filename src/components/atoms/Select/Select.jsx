@@ -1,11 +1,14 @@
 import React from 'react';
 import { map } from 'ramda';
 
+import styles from './Select.module.scss';
+
 export default React.forwardRef(function Select({ options = [], ...props }, ref) {
   return (
     <select
-      ref={ref}
       {...props}
+      ref={ref}
+      className={styles.select}
     >
       {map(({ value, label }) => (
         <option

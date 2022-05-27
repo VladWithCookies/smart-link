@@ -1,7 +1,14 @@
 import React from 'react';
+import clsx from 'clsx';
 
-export default React.forwardRef(function Input(props, ref) {
+import styles from './Input.module.scss';
+
+export default React.forwardRef(function Input({ className, ...props }, ref) {
   return (
-    <input ref={ref} {...props} />
+    <input
+      {...props}
+      ref={ref}
+      className={clsx(styles.input, className)}
+    />
   );
 });

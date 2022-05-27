@@ -1,0 +1,37 @@
+@import "styles/variables";
+
+.button {
+  padding: $indent-sm;
+  border: 2px solid $gray-900;
+  background-color: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all $transition-duration;
+
+  &:hover {
+    background-color: $gray-900;
+    color: $gray-100;
+    transition: all $transition-duration;
+  }
+
+  &_primary {
+    background-color: $gray-900;
+    color: $gray-100;
+
+    &:hover {
+      border-color: $gray-500;
+      background-color: $gray-500;
+    }
+  }
+
+  &_danger {
+    border-color: $red-900;
+    color: $red-900;
+
+    &:hover {
+      background-color: $red-900;
+    }
+  }
+}
