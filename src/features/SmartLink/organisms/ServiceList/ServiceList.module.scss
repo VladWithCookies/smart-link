@@ -1,0 +1,16 @@
+@import "styles/variables";
+
+.services {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  flex-direction: column;
+  padding: $indent-md;
+  border: 2px solid $gray-900;
+  gap: $indent-sm;
+
+  &_item {
+    display: flex;
+    justify-content: space-between;
+  }
+}

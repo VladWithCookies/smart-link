@@ -6,14 +6,15 @@ import styles from './Button.module.scss';
 export default function Button({
   type = 'button',
   kind,
-  onClick,
   children,
-  className
+  className,
+  as: Component = 'button',
+  ...props
 }) {
   return (
-    <button
+    <Component
+      {...props}
       type={type}
-      onClick={onClick}
       className={clsx(
         styles.button,
         kind === 'primary' && styles.button_primary,
@@ -22,6 +23,6 @@ export default function Button({
       )}
     >
       {children}
-    </button>
+    </Component>
   );
 }

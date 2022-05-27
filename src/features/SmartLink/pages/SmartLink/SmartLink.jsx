@@ -1,7 +1,12 @@
 import React from 'react';
 
+import ServiceList from 'features/SmartLink/organisms/ServiceList';
+import MainLayout from 'components/templates/MainLayout';
+
 export default function SmartLink() {
   return (
-    <p>Smart Link</p>
+    <MainLayout>
+      <ServiceList />
+    </MainLayout>
   );
 }

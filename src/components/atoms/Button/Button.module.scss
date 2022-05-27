@@ -1,12 +1,19 @@
 @import "styles/variables";
 
 .button {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
   padding: $indent-sm;
   border: 2px solid $gray-900;
   background-color: transparent;
   border-radius: 0;
+  color: $gray-900;
   cursor: pointer;
+  font-size: $font-size-sm;
   font-weight: 700;
+  text-decoration: none;
   text-transform: uppercase;
   transition: all $transition-duration;
 
@@ -14,6 +21,12 @@
     background-color: $gray-900;
     color: $gray-100;
     transition: all $transition-duration;
+  }
+
+  &:disabled {
+    border-color: $gray-500;
+    color: $gray-500;
+    pointer-events: none;
   }
 
   &_primary {

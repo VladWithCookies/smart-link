@@ -13,7 +13,7 @@ import styles from './CreateLinkForm.module.scss';
 
 export default function CreateLinkForm() {
   const methods = useForm();
-  const { fields, append, remove } = useFieldArray({ name: 'service', control: methods.control });
+  const { fields, append, remove } = useFieldArray({ name: 'services', control: methods.control });
   const navigate = useNavigate();
 
   const [{ name: SPOTIFY }] = STREAMING_SERVICE_OPTIONS;
@@ -23,16 +23,17 @@ export default function CreateLinkForm() {
     <Form
       methods={methods}
       onSubmit={handleSubmit}
+      className={styles.form}
     >
       {fields.map((item, index) => (
         <Fieldset key={item.id}>
           <SelectField
-            name={`service.${index}.name`}
+            name={`services.${index}.name`}
             options={STREAMING_SERVICE_OPTIONS}
           />
           <InputField
-            name={`service.${index}.url`}
-            className={styles.input}
+            name={`services.${index}.url`}
+            className={styles.form_input}
           />
           <Button
             kind="danger"
@@ -42,8 +43,11 @@ export default function CreateLinkForm() {
           </Button>
         </Fieldset>
       ))}
-      <div className={styles.actions}>
-        <Button onClick={() => append({ name: SPOTIFY, url: '' })}>
+      <div className={styles.form_actions}>
+        <Button
+          onClick={() => append({ name: SPOTIFY, url: '' })}
+          disabled={fields.length >= STREAMING_SERVICE_OPTIONS.length}
+        >
           Add Streaming Service
         </Button>
         <Button
