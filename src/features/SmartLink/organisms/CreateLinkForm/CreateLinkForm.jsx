@@ -1,5 +1,5 @@
 import React from 'react';
-import { stringify } from 'qs';
+import { pipe } from 'ramda';
 import { useNavigate } from 'react-router-dom';
 import { useForm, useFieldArray } from 'react-hook-form';
 
@@ -15,11 +15,9 @@ export default function CreateLinkForm() {
   const methods = useForm();
   const { fields, append, remove } = useFieldArray({ name: 'service', control: methods.control });
   const navigate = useNavigate();
-  const [{ name: SPOTIFY }] = STREAMING_SERVICE_OPTIONS;
 
-  const handleSubmit = (values) => {
-    navigate(`/?${stringify(values)}`);
-  };
+  const [{ name: SPOTIFY }] = STREAMING_SERVICE_OPTIONS;
+  const handleSubmit = pipe(JSON.stringify, btoa, navigate);
 
   return (
     <Form

@@ -13,8 +13,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SmartLink />} />
-        <Route path="create" element={<LinkCreator/>} />
+        <Route path="/" element={<LinkCreator/>} />
+        <Route path="/:payload" element={<SmartLink />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
