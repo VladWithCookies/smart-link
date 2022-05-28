@@ -7,10 +7,17 @@
   flex-direction: column;
   padding: $indent-md;
   border: 2px solid $gray-900;
+  margin: 0 $indent-sm;
   gap: $indent-sm;
 
-  &_item {
+  &__item {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    margin: 0;
   }
 }

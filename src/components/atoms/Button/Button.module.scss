@@ -37,6 +37,12 @@
       border-color: $gray-500;
       background-color: $gray-500;
     }
+
+    &:disabled {
+      border-color: $gray-500;
+      background-color: $gray-500;
+      color: $gray-100;
+    }
   }
 
   &_danger {

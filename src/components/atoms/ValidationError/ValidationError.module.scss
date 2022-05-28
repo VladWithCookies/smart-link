@@ -1,0 +1,8 @@
+@import "styles/variables";
+
+.error {
+  position: absolute;
+  margin: 2px 0 0;
+  color: $red-900;
+  font-size: $font-size-xs;
+}

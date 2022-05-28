@@ -1,12 +1,16 @@
-.form {
-  min-width: 500px;
+@import "styles/variables";
 
-  &_actions {
+.form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 $indent-sm;
+
+  &__actions {
     display: flex;
     justify-content: space-between;
   }
 
-  &_input {
+  &__input {
     border-right: none;
     border-left: none;
   }

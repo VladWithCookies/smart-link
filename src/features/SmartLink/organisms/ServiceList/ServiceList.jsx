@@ -19,9 +19,9 @@ export default function ServiceList() {
       {services.map((service, index) => (
         <li
           key={index}
-          className={styles.services_item}
+          className={styles.services__item}
         >
-          <p>
+          <p className={styles.services__name}>
             {service.name}
           </p>
           <Button

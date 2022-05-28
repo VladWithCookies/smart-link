@@ -1,6 +1,7 @@
 import React from 'react';
 import { pipe } from 'ramda';
 import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, useFieldArray } from 'react-hook-form';
 
 import Form from 'components/atoms/Form';
@@ -9,10 +10,11 @@ import Fieldset from 'components/atoms/Fieldset';
 import InputField from 'components/molecules/InputField';
 import SelectField from 'components/molecules/SelectField';
 import { STREAMING_SERVICE_OPTIONS } from 'constants';
+import validationSchema from './validationSchema';
 import styles from './CreateLinkForm.module.scss';
 
 export default function CreateLinkForm() {
-  const methods = useForm();
+  const methods = useForm({ resolver: yupResolver(validationSchema) });
   const { fields, append, remove } = useFieldArray({ name: 'services', control: methods.control });
   const navigate = useNavigate();
 
@@ -32,8 +34,9 @@ export default function CreateLinkForm() {
             options={STREAMING_SERVICE_OPTIONS}
           />
           <InputField
+            id={`services-${index}-url`}
             name={`services.${index}.url`}
-            className={styles.form_input}
+            className={styles.form__input}
           />
           <Button
             kind="danger"
@@ -43,16 +46,17 @@ export default function CreateLinkForm() {
           </Button>
         </Fieldset>
       ))}
-      <div className={styles.form_actions}>
+      <div className={styles.form__actions}>
         <Button
           onClick={() => append({ name: SPOTIFY, url: '' })}
           disabled={fields.length >= STREAMING_SERVICE_OPTIONS.length}
         >
-          Add Streaming Service
+          Add Streaming
         </Button>
         <Button
           type="submit"
           kind="primary"
+          disabled={!fields.length}
         >
           Create Smart Link
         </Button>
