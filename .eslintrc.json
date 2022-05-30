@@ -18,19 +18,26 @@
   "extends": [
     "eslint:recommended",
     "plugin:import/react",
-    "plugin:sonarjs/recommended",
-    "plugin:pii/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:ramda/recommended",
-    "plugin:jest/recommended",
-    "plugin:jest/style",
-    "plugin:jest-formatting/strict"
+    "plugin:ramda/recommended"
   ],
   "overrides": [
     {
-      "files": ["**/*.test.js?(x)"],
-      "extends": ["plugin:testing-library/react"]
+      "files": ["**/__tests__/*.test.js?(x)"],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-formatting/strict",
+        "plugin:testing-library/react"
+      ]
+    },
+    {
+      "files": ["!**/e2e/*.test.mjs"],
+      "extends": [
+        "plugin:sonarjs/recommended",
+        "plugin:pii/recommended"
+      ]
     }
   ],
   "settings": {

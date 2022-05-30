@@ -8,6 +8,7 @@ export default function Button({
   kind,
   children,
   className,
+  dataTestId,
   as: Component = 'button',
   ...props
 }) {
@@ -15,6 +16,7 @@ export default function Button({
     <Component
       {...props}
       type={type}
+      data-testid={dataTestId}
       className={clsx(
         styles.button,
         kind === 'primary' && styles.button_primary,

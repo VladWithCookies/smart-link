@@ -37,10 +37,12 @@ export default function CreateLinkForm() {
             id={`services-${index}-url`}
             name={`services.${index}.url`}
             className={styles.form__input}
+            dataTestId={`url-field-${index}`}
           />
           <Button
             kind="danger"
             onClick={() => remove(index)}
+            dataTestId={`remove-streaming-${index}`}
           >
             Remove
           </Button>
@@ -50,6 +52,7 @@ export default function CreateLinkForm() {
         <Button
           onClick={() => append({ name: SPOTIFY, url: '' })}
           disabled={fields.length >= STREAMING_SERVICE_OPTIONS.length}
+          dataTestId="add-streaming"
         >
           Add Streaming
         </Button>
@@ -57,8 +60,9 @@ export default function CreateLinkForm() {
           type="submit"
           kind="primary"
           disabled={!fields.length}
+          dataTestId="create-link"
         >
-          Create Smart Link
+          Create Link
         </Button>
       </div>
     </Form>

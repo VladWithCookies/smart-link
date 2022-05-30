@@ -37,6 +37,7 @@ export default function ServiceList() {
           <Button
             as="a"
             href={service.url}
+            dataTestId={`link-${index}`}
           >
             Play
           </Button>
