@@ -6,7 +6,7 @@ test.describe('Smart Link', () => {
   const youtubeMusicURL = 'https://music.youtube.com/watch?v=J_TpZ6DU-Mk';
 
   test.beforeEach(async({ page }) => {
-    await page.goto('http://localhost:8080/');
+    await page.goto('/');
   });
 
   test.describe('when the user enters valid data and submits the form', () => {
@@ -28,6 +28,7 @@ test.describe('Smart Link', () => {
       await expect(page.locator('data-testid=link-0')).toHaveAttribute('href', spotifyURL);
       await expect(page.locator('data-testid=link-1')).toHaveAttribute('href', appleMusicURL);
       await expect(page.locator('data-testid=link-2')).toHaveAttribute('href', youtubeMusicURL);
+      await expect(page).toHaveScreenshot();
     });
   });
 
