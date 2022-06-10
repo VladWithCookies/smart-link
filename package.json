@@ -11,7 +11,8 @@
     "build": "webpack --config webpack.production.js",
     "start": "webpack serve --config webpack.production.js",
     "lint": "eslint src/**/*.js src/**/*.jsx & stylelint **/*.css **/*.scss",
-    "test": "jest"
+    "test:unit": "jest",
+    "test:e2e": "playwright test"
   },
   "author": "Vladyslav Wyderko",
   "license": "ISC",
